@@ -21,7 +21,7 @@ public class ToBeOrNotToBe {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd  HH;mm;ss");
+        DateFormat sdf = new SimpleDateFormat("MM-dd-yyyy  HH;mm;ss");
         Date date = new Date();
         String runDate = sdf.format(date);
         new File("Output/" + runDate).mkdirs();
