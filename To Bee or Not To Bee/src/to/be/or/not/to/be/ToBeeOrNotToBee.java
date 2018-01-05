@@ -15,7 +15,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ToBeOrNotToBe {
+public class ToBeeOrNotToBee {
 
     /**
      * @param args the command line arguments
