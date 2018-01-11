@@ -2,7 +2,7 @@
 package to.be.or.not.to.be;
 
 /**
- * @author Matthew Gutkin
+ * @author Henry Dench (c), Matthew Gutkin, Eric Von Bevern
  *
  */
 
