@@ -1,14 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package to.be.or.not.to.be;
-import javafx.geometry.Point3D;
+
 /**
- *
- * @author Henry Dench (c), Matthew Gutkin, Eric Von Bevern
+ * @author Henry Dench (c)
+ * @author Matthew Gutkin
+ * @author Eric Von Bevern
  */
+
+import javafx.geometry.Point3D;
+
 public class Hive {
     private Point3D loc;
     boolean full;

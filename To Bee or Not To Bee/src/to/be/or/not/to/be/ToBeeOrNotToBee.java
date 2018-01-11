@@ -2,8 +2,9 @@
 package to.be.or.not.to.be;
 
 /**
- * @author Henry Dench (c), Matthew Gutkin, Eric Von Bevern
- *
+ * @author Henry Dench (c)
+ * @author Matthew Gutkin
+ * @author Eric Von Bevern
  */
 
 import java.util.Scanner;
