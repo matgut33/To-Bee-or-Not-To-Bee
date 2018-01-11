@@ -1,13 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package to.be.or.not.to.be;
+
 import javafx.geometry.Point3D;
+
 /**
- *
- * @author evonbevern
+ * @author Henry Dench (c)
+ * @author Matthew Gutkin
+ * @author Eric Von Bevern
  */
 
 public class Bee {
