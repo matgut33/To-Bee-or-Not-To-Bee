@@ -4,11 +4,17 @@
  * and open the template in the editor.
  */
 package to.be.or.not.to.be;
-
+import javafx.geometry.Point3D;
 /**
  *
  * @author evonbevern
  */
-public class Hive {
+public class Hive 
+{
+    public Hive(Point3D x, boolean full)
+    {
+       full = false;
     
+        
+    }
 }
