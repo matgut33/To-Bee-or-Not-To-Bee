@@ -32,6 +32,15 @@ public class ToBeeOrNotToBee {
         new File("Output/" + runDate).mkdirs();
         File f = new File("beesetup" + z + ".txt");
         Scanner r = new Scanner(f);
+        String Day = r.nextLine();
+      
+        String si = r.nextLine();
+        int dimx, dimy, dimz;
+        dimx = Integer.parseInt(si.substring(0, 2));
+        dimy = Integer.parseInt(si.substring(3, 5));
+        dimz = Integer.parseInt(si.substring(6, 8));
+        int size[][][] = new int[dimx][dimy][dimz];
+        
     }
 
 }
