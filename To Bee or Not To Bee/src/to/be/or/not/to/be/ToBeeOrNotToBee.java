@@ -20,7 +20,7 @@ import java.io.FileNotFoundException;
 public class ToBeeOrNotToBee {
 
     /**
-     * @param args the command line arguments
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
         //MATCH NUMBER TO WHICH SETUP TO USE
@@ -30,17 +30,23 @@ public class ToBeeOrNotToBee {
         Date date = new Date();
         String runDate = sdf.format(date);
         new File("Output/" + runDate).mkdirs();
+        DecimalFormat two = new DecimalFormat("#.##");
         File f = new File("beesetup" + z + ".txt");
         Scanner r = new Scanner(f);
-        String Day = r.nextLine();
+        int day = r.nextInt();
       
+        Box cube[][][] = getSize(r);
+        
+    }
+    
+    public static Box[][][] getSize(Scanner r) {
         String si = r.nextLine();
         int dimx, dimy, dimz;
         dimx = Integer.parseInt(si.substring(0, 2));
         dimy = Integer.parseInt(si.substring(3, 5));
         dimz = Integer.parseInt(si.substring(6, 8));
-        int size[][][] = new int[dimx][dimy][dimz];
-        
+        Box size[][][] = new Box[dimx][dimy][dimz];
+        return size;
     }
 
 }
