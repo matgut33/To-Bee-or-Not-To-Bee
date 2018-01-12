@@ -20,6 +20,7 @@ import java.io.FileNotFoundException;
 public class ToBeeOrNotToBee {
 
     /**
+     * @param args String[]
      * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
@@ -40,6 +41,7 @@ public class ToBeeOrNotToBee {
     }
     
     public static Box[][][] getSize(Scanner r) {
+        r.nextLine();
         String si = r.nextLine();
         int dimx, dimy, dimz;
         dimx = Integer.parseInt(si.substring(0, 2));
