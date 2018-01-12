@@ -1,14 +1,13 @@
 
 package to.be.or.not.to.be;
 
+import javafx.geometry.Point3D;
+
 /**
  * @author Henry Dench (c)
  * @author Matthew Gutkin
  * @author Eric Von Bevern
  */
-
-import javafx.geometry.Point3D;
-
 
 public class Bee {
     private Point3D loc;
