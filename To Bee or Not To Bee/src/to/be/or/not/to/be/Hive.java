@@ -1,22 +1,20 @@
 
 package to.be.or.not.to.be;
 
+import javafx.geometry.Point3D;
+
 /**
  * @author Henry Dench (c)
  * @author Matthew Gutkin
  * @author Eric Von Bevern
  */
 
-import javafx.geometry.Point3D;
-
 public class Hive {
     private Point3D loc;
     boolean full;
     
     public Hive() {
-        Point3D x = new Point3D(0,0,0);
-        setLoc(x);
-        setFull(false);
+        this(new Point3D(0,0,0),false);
     }
     
     public Hive(Point3D x, boolean f)

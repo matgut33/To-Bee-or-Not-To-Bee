@@ -7,6 +7,7 @@ import javafx.geometry.Point3D;
  * @author Matthew Gutkin
  *
  */
+
 public class Box {
     private Point3D loc;
     boolean blocked;
