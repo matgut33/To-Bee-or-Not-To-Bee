@@ -73,5 +73,46 @@ public class ToBeeOrNotToBee {
         }
         return h;
     }
+    
+    public static Bee[] setBee(Scanner r) {
+        for(int i = 0; i < 18; i++){
+            r.nextLine();
+        }
+        Bee[] b = new Bee[15];
+        for(int i = 0; i < 15; i++){
+            String be = r.nextLine();
+            int dimx, dimy, dimz;
+            dimx = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            be.substring(be.indexOf("," + 1));
+            dimy = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            be.substring(be.indexOf("," + 1));
+            dimz = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            Point3D htemp = new Point3D (dimx, dimy, dimz);
+            Bee temp = new Bee(htemp);
+            b[i] = temp;
+        }
+        return b;
+    }
+    
+    public static void setObs(Scanner r) {
+        for(int i = 0; i < 33; i++){
+            r.nextLine();
+        }
+        Box[] b = new Box[15];
+        for(int i = 0; i < 15; i++){
+            String ob = r.nextLine();
+            int dimx, dimy, dimz;
+            dimx = Integer.parseInt(ob.substring(0, ob.indexOf(",") - 1));
+            ob.substring(ob.indexOf("," + 1));
+            dimy = Integer.parseInt(ob.substring(0, be.indexOf(",") - 1));
+            ob.substring(ob.indexOf("," + 1));
+            dimz = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            Point3D htemp = new Point3D (dimx, dimy, dimz);
+            Bee temp = new Bee(htemp);
+            o[i] = temp;
+        }
+        return b;
+    }
 
+    
 }
