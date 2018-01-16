@@ -30,6 +30,14 @@ public class Box {
     public void setLoc(Point3D loc) {
         this.loc = loc;
     }
+
+    public boolean isBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(boolean blocked) {
+        this.blocked = blocked;
+    }
     
     
 }

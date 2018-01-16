@@ -7,6 +7,7 @@ package to.be.or.not.to.be;
  * @author Eric Von Bevern
  */
 
+import javafx.geometry.Point3D;
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.File;
@@ -38,17 +39,39 @@ public class ToBeeOrNotToBee {
       
         Box cube[][][] = getSize(r);
         
+        
     }
     
     public static Box[][][] getSize(Scanner r) {
         r.nextLine();
         String si = r.nextLine();
         int dimx, dimy, dimz;
-        dimx = Integer.parseInt(si.substring(0, 2));
-        dimy = Integer.parseInt(si.substring(3, 5));
-        dimz = Integer.parseInt(si.substring(6, 8));
+        dimx = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
+        si.substring(si.indexOf("," + 1));
+        dimy = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
+        si.substring(si.indexOf("," + 1));
+        dimz = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
         Box size[][][] = new Box[dimx][dimy][dimz];
         return size;
+    }
+    
+    public static Hive[] setHive(Scanner r) {
+        r.nextLine();
+        r.nextLine();
+        Hive[] h = new Hive[15];
+        for(int i = 0; i < 15; i++){
+            String hi = r.nextLine();
+            int dimx, dimy, dimz;
+            dimx = Integer.parseInt(hi.substring(0, hi.indexOf(",") - 1));
+            hi.substring(hi.indexOf("," + 1));
+            dimy = Integer.parseInt(hi.substring(0, hi.indexOf(",") - 1));
+            hi.substring(hi.indexOf("," + 1));
+            dimz = Integer.parseInt(hi.substring(0, hi.indexOf(",") - 1));
+            Point3D htemp = new Point3D (dimx, dimy, dimz);
+            Hive temp = new Hive(htemp, false);
+            h[i] = temp;
+        }
+        return h;
     }
 
 }

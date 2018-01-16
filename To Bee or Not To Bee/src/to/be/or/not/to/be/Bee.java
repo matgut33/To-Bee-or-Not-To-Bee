@@ -11,6 +11,7 @@ import javafx.geometry.Point3D;
 
 public class Bee {
     private Point3D loc;
+    private int moves;
     
     public Bee()
     {
@@ -30,4 +31,14 @@ public class Bee {
     public void setLoc(Point3D loc) {
         this.loc = loc;
     }
+
+    public int getMoves() {
+        return moves;
+    }
+
+    public void setMoves(int moves) {
+        this.moves = moves;
+    }
+    
+    
 }
