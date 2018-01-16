@@ -35,11 +35,14 @@ public class ToBeeOrNotToBee {
         String Day = r.nextLine();
       
         String si = r.nextLine();
-        int dimx, dimy, dimz;
-        dimx = Integer.parseInt(si.substring(0, 2));
-        dimy = Integer.parseInt(si.substring(3, 5));
-        dimz = Integer.parseInt(si.substring(6, 8));
-        int size[][][] = new int[dimx][dimy][dimz];
+        int dimx, dimy = 0, dimz = 0;
+        dimx = Integer.parseInt(si.substring(0, si.indexOf(",")));
+        String siz = (si.substring(si.indexOf(",") + 1));
+        System.out.println(siz);
+        dimy = Integer.parseInt(siz.substring(0, siz.indexOf(",")));
+        dimz = Integer.parseInt(siz.substring(siz.indexOf(",") + 1));
+        int size[][][] = new int[dimx][4][9];
+        System.out.println(dimx + " " + dimy + " " + dimz);
         
     }
 
