@@ -20,7 +20,8 @@ import java.io.FileNotFoundException;
 public class ToBeeOrNotToBee {
 
     /**
-     * @param args the command line arguments
+     * @param args String[]
+     * @throws FileNotFoundException
      */
     public static void main(String[] args) throws FileNotFoundException {
         //MATCH NUMBER TO WHICH SETUP TO USE
@@ -30,11 +31,19 @@ public class ToBeeOrNotToBee {
         Date date = new Date();
         String runDate = sdf.format(date);
         new File("Output/" + runDate).mkdirs();
+        DecimalFormat two = new DecimalFormat("#.##");
         File f = new File("beesetup" + z + ".txt");
         Scanner r = new Scanner(f);
-        String Day = r.nextLine();
+        int day = r.nextInt();
       
+        Box cube[][][] = getSize(r);
+        
+    }
+    
+    public static Box[][][] getSize(Scanner r) {
+        r.nextLine();
         String si = r.nextLine();
+<<<<<<< HEAD
         int dimx, dimy = 0, dimz = 0;
         dimx = Integer.parseInt(si.substring(0, si.indexOf(",")));
         String siz = (si.substring(si.indexOf(",") + 1));
@@ -44,6 +53,14 @@ public class ToBeeOrNotToBee {
         int size[][][] = new int[dimx][4][9];
         System.out.println(dimx + " " + dimy + " " + dimz);
         
+=======
+        int dimx, dimy, dimz;
+        dimx = Integer.parseInt(si.substring(0, 2));
+        dimy = Integer.parseInt(si.substring(3, 5));
+        dimz = Integer.parseInt(si.substring(6, 8));
+        Box size[][][] = new Box[dimx][dimy][dimz];
+        return size;
+>>>>>>> 03e5d6bfca6ab52b335ab93540edb8ffffc933af
     }
 
 }
