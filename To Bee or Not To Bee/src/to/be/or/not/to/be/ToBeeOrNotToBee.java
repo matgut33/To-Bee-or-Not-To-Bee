@@ -45,11 +45,11 @@ public class ToBeeOrNotToBee {
         si.substring(si.indexOf(","));
         dimz = Integer.parseInt(si.substring(0, si.indexOf(",")));
         Box cube[][][] = new Box[dimx][dimy][dimz];
-        dimx = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
+        dimx = Integer.parseInt(si.substring(0, si.indexOf(",")));
         si.substring(si.indexOf(",") + 1);
-        dimy = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
+        dimy = Integer.parseInt(si.substring(0, si.indexOf(",")));
         si.substring(si.indexOf(",") + 1);
-        dimz = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
+        dimz = Integer.parseInt(si.substring(0, si.indexOf(",")));
         Box size[][][] = new Box[dimx][dimy][dimz];
         for(int x = 0; x < dimx; x++){
             for(int y = 0; y < dimy; y++){
