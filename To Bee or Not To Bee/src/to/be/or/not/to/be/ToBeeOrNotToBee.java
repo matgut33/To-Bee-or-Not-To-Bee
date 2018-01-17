@@ -65,9 +65,9 @@ public class ToBeeOrNotToBee {
         Bee[] Bees = new Bee[15];
         for(int i = 0; i < 15; i++){
             String be = r.nextLine();
-            dimx = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            dimx = Integer.parseInt(be.substring(0, be.indexOf(",")));
             be.substring(be.indexOf(","));
-            dimy = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            dimy = Integer.parseInt(be.substring(0, be.indexOf(",")));
             be.substring(be.indexOf(","));
             dimz = Integer.parseInt(be.substring(0, be.indexOf(",")));
             Point3D htemp = new Point3D (dimx, dimy, dimz);
@@ -78,11 +78,11 @@ public class ToBeeOrNotToBee {
         int obs = Integer.parseInt(r.nextLine());
         for(int i = 0; i < obs; i++){
             String ob = r.nextLine();
-            dimx = Integer.parseInt(ob.substring(0, ob.indexOf(",") - 1));
+            dimx = Integer.parseInt(ob.substring(0, ob.indexOf(",")));
             ob.substring(ob.indexOf(",") + 1);
-            dimy = Integer.parseInt(ob.substring(0, ob.indexOf(",") - 1));
+            dimy = Integer.parseInt(ob.substring(0, ob.indexOf(",")));
             ob.substring(ob.indexOf(",") + 1);
-            dimz = Integer.parseInt(ob.substring(0, ob.indexOf(",") - 1));
+            dimz = Integer.parseInt(ob.substring(0, ob.indexOf(",")));
             cube[dimx][dimy][dimz].setBlocked(true);
         }
         
