@@ -36,13 +36,12 @@ public class ToBeeOrNotToBee {
         File f = new File("beesetup" + z + ".txt");
         Scanner r = new Scanner(f);
         int day = r.nextInt();
-      
-        Box cube[][][] = getSize(r);
+        Box cube[][][] = setBoxes(r); 
         
         
     }
     
-    public static Box[][][] getSize(Scanner r) {
+    public static Box[][][] setBoxes(Scanner r) {
         r.nextLine();
         String si = r.nextLine();
         int dimx, dimy, dimz;
@@ -52,13 +51,24 @@ public class ToBeeOrNotToBee {
         si.substring(si.indexOf("," + 1));
         dimz = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
         Box size[][][] = new Box[dimx][dimy][dimz];
+        for(int x = 0; x < dimx; x++){
+            for(int y = 0; y < dimy; y++){
+                for (int z = 0; z < dimz; z++){
+                    Point3D temp = new Point3D(x,y,z);
+                    size[x][y][z] = new Box(temp);
+                }
+            }
+        }
+        Box a[][][] = setHive(r,size);
+        Bee bee[] = makeBees(r);
         return size;
     }
     
-    public static Hive[] setHive(Scanner r) {
+    
+    public static Box[][][] setHive(Scanner r, Box[][][] t) {
         r.nextLine();
         r.nextLine();
-        Hive[] h = new Hive[15];
+        
         for(int i = 0; i < 15; i++){
             String hi = r.nextLine();
             int dimx, dimy, dimz;
@@ -67,14 +77,13 @@ public class ToBeeOrNotToBee {
             dimy = Integer.parseInt(hi.substring(0, hi.indexOf(",") - 1));
             hi.substring(hi.indexOf("," + 1));
             dimz = Integer.parseInt(hi.substring(0, hi.indexOf(",") - 1));
-            Point3D htemp = new Point3D (dimx, dimy, dimz);
-            Hive temp = new Hive(htemp, false);
-            h[i] = temp;
+            t[dimx][dimy][dimz].setHive(true);
         }
-        return h;
+        Box[][][] d = setBees(r, t);
+        return d;
     }
     
-    public static Bee[] setBee(Scanner r) {
+    public static Bee[] makeBees(Scanner r) {
         for(int i = 0; i < 18; i++){
             r.nextLine();
         }
@@ -90,28 +99,39 @@ public class ToBeeOrNotToBee {
             Point3D htemp = new Point3D (dimx, dimy, dimz);
             Bee temp = new Bee(htemp);
             b[i] = temp;
+            
         }
         return b;
     }
     
-    public static void setObs(Scanner r) {
-        for(int i = 0; i < 33; i++){
-            r.nextLine();
-        }
-        Box[] b = new Box[15];
+    public static Box[][][] setBees(Scanner r, Box[][][] input) {
         for(int i = 0; i < 15; i++){
+            String be = r.nextLine();
+            int dimx, dimy, dimz;
+            dimx = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            be.substring(be.indexOf("," + 1));
+            dimy = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            be.substring(be.indexOf("," + 1));
+            dimz = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
+            input[dimx][dimy][dimz].setBee(true);
+        }
+        Box[][][] output = setObs(r, input);
+        return output;
+    }
+    
+    public static Box[][][] setObs(Scanner r, Box[][][] t) {
+        int obs = Integer.parseInt(r.nextLine());
+        for(int i = 0; i < obs; i++){
             String ob = r.nextLine();
             int dimx, dimy, dimz;
             dimx = Integer.parseInt(ob.substring(0, ob.indexOf(",") - 1));
             ob.substring(ob.indexOf("," + 1));
-            dimy = Integer.parseInt(ob.substring(0, be.indexOf(",") - 1));
+            dimy = Integer.parseInt(ob.substring(0, ob.indexOf(",") - 1));
             ob.substring(ob.indexOf("," + 1));
-            dimz = Integer.parseInt(be.substring(0, be.indexOf(",") - 1));
-            Point3D htemp = new Point3D (dimx, dimy, dimz);
-            Bee temp = new Bee(htemp);
-            o[i] = temp;
+            dimz = Integer.parseInt(ob.substring(0, ob.indexOf(",") - 1));
+            t[dimx][dimy][dimz].setBlocked(true);
         }
-        return b;
+        return t;
     }
 
     
