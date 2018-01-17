@@ -61,7 +61,7 @@ public class ToBeeOrNotToBee {
         }
         Box a[][][] = setHive(r,size);
         Bee bee[] = makeBees(r);
-        return size;
+        return a;
     }
     
     

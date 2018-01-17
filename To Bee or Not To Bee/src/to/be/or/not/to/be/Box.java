@@ -11,6 +11,8 @@ import javafx.geometry.Point3D;
 public class Box {
     private Point3D loc;
     boolean blocked;
+    boolean hive;
+    boolean bee;
     
     public Box()
     {
@@ -38,6 +40,24 @@ public class Box {
     public void setBlocked(boolean blocked) {
         this.blocked = blocked;
     }
+
+    public boolean isHive() {
+        return hive;
+    }
+
+    public void setHive(boolean hive) {
+        this.hive = hive;
+    }
+
+    public boolean isBee() {
+        return bee;
+    }
+
+    public void setBee(boolean bee) {
+        this.bee = bee;
+    }
+    
+    
     
     
 }
