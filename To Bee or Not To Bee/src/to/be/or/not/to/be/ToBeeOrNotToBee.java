@@ -46,9 +46,9 @@ public class ToBeeOrNotToBee {
         String si = r.nextLine();
         int dimx, dimy, dimz;
         dimx = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
-        si.substring(si.indexOf("," + 1));
+        si.substring(si.indexOf(",") + 1);
         dimy = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
-        si.substring(si.indexOf("," + 1));
+        si.substring(si.indexOf(",") + 1);
         dimz = Integer.parseInt(si.substring(0, si.indexOf(",") - 1));
         Box size[][][] = new Box[dimx][dimy][dimz];
         for(int x = 0; x < dimx; x++){
