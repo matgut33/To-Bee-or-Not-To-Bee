@@ -57,7 +57,17 @@ public class Box {
         this.bee = bee;
     }
     
+    public int getX() {
+        return (int)loc.getX();
+    }
     
+    public int getY() {
+        return (int)loc.getY();
+    }
+    
+    public int getZ() {
+        return (int)loc.getZ();
+    }
     
     
 }
