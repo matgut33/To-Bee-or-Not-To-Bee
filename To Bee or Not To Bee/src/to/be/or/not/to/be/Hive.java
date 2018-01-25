@@ -14,12 +14,11 @@ public class Hive {
     boolean full;
     
     public Hive() {
-        this(new Point3D(0,0,0),false);
+        this(new Point3D(0,0,0));
     }
     
-    public Hive(Point3D x, boolean f)
+    public Hive(Point3D x)
     {
-       setFull(f);
        setLoc(x);
     }
 

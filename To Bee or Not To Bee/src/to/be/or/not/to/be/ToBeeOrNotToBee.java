@@ -59,6 +59,7 @@ public class ToBeeOrNotToBee {
                 }
             }
         }
+        Hive[] Hives = new Hive[15];
         for(int i = 0; i < 15; i++){
             String hi = r.nextLine();
             dimx = Integer.parseInt(hi.substring(0, hi.indexOf(",")));
@@ -67,6 +68,8 @@ public class ToBeeOrNotToBee {
             hi.substring(hi.indexOf(","));
             dimz = Integer.parseInt(hi.substring(0, hi.indexOf(",")));
             cube[dimx][dimy][dimz].setHive(true);
+            Point3D temp = new Point3D(dimx,dimy,dimz);
+            Hives[i] = new Hive(temp);
         }
         Bee[] Bees = new Bee[15];
         for(int i = 0; i < 15; i++){
@@ -92,7 +95,31 @@ public class ToBeeOrNotToBee {
             cube[dimx][dimy][dimz].setBlocked(true);
         }
         
-        
+        //Algorithm Try
+        //Bee 1
+        boolean left = false, right = false, up = false, down = false, forward = false, back = false;
+        int wantedX = Bees[0].getX(), wantedY = Bees[0].getY(), wantedZ = Bees[0].getZ();
+        int moves[] = new int[15];
+        if (Bees[0].getX() > Hives[0].getX()) left = true;
+        if (Bees[0].getX() < Hives[0].getX()) right = true;
+        if (Bees[0].getY() > Hives[0].getY()) down = true;
+        if (Bees[0].getY() < Hives[0].getY()) up = true;
+        if (Bees[0].getZ() > Hives[0].getZ()) back = true;
+        if (Bees[0].getZ() < Hives[0].getZ()) forward = true;
+        if (left = true) wantedX -= 1;
+        if (right = true) wantedX += 1;
+        if (down = true) wantedY -= 1;
+        if (up = true) wantedY += 1;
+        if (back = true) wantedZ -= 1;
+        if (forward = true) wantedZ += 1;
+        if (cube[wantedX][wantedY][wantedZ].isFull() == false){
+            Point3D temp = new Point3D(wantedX, wantedY, wantedZ);
+            Bees[0] = new Bee(temp);
+            moves[0] += 1;
+        } else {
+            wantedX = Bees[0].getX();
+            if (cube[wantedX][wantedY][wantedZ].isFull() == false)
+        }
     }
   
 

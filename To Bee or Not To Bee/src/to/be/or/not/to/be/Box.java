@@ -14,6 +14,7 @@ public class Box {
     boolean hive;
     boolean bee;
     
+    
     public Box()
     {
         Point3D x = new Point3D(0,0,0);
@@ -69,5 +70,9 @@ public class Box {
         return (int)loc.getZ();
     }
     
-    
+    public boolean isFull(){
+        if (blocked == true || bee == true) return true;
+        return false;
+        
+    }
 }
