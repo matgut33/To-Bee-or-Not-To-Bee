@@ -98,62 +98,80 @@ public class ToBeeOrNotToBee {
         
         //Algorithm Try
         //Bee 1
-        boolean done = false;
-        for(int i = 0; done == false; i++){
+       
+        int totalmoves = 0;
+        for(int i = 0; i < 15; i++){
+            boolean done = false;
+            for(int k = 0; done == false; k++){
             boolean left = false, right = false, up = false, down = false, forward = false, back = false, com = false;
-            int wantedX = Bees[0].getX(), wantedY = Bees[0].getY(), wantedZ = Bees[0].getZ();
-            if (Bees[0].getX() > Hives[0].getX()) left = true;
-            if (Bees[0].getX() < Hives[0].getX()) right = true;
-            if (Bees[0].getY() > Hives[0].getY()) down = true;
-            if (Bees[0].getY() < Hives[0].getY()) up = true;
-            if (Bees[0].getZ() > Hives[0].getZ()) back = true;
-            if (Bees[0].getZ() < Hives[0].getZ()) forward = true;
+            int wantedX = Bees[i].getX(), wantedY = Bees[i].getY(), wantedZ = Bees[i].getZ();
+            if (Bees[i].getX() > Hives[i].getX()) left = true;
+            if (Bees[i].getX() < Hives[i].getX()) right = true;
+            if (Bees[i].getY() > Hives[i].getY()) down = true;
+            if (Bees[i].getY() < Hives[i].getY()) up = true;
+            if (Bees[i].getZ() > Hives[i].getZ()) back = true;
+            if (Bees[i].getZ() < Hives[i].getZ()) forward = true;
             if (left == true) wantedX --;
             if (right == true) wantedX ++;
             if (down == true) wantedY --;
             if (up == true) wantedY ++;
             if (back == true) wantedZ --;
             if (forward == true) wantedZ ++;
-            cube[Bees[0].getX()][Bees[0].getY()][Bees[0].getZ()].setBee(false);
-            System.out.println(wantedX + " " + wantedY + " " + wantedZ);
+            cube[Bees[i].getX()][Bees[i].getY()][Bees[i].getZ()].setBee(false);
+            //System.out.println(wantedX + " " + wantedY + " " + wantedZ);
             //First Box (Best move)
-            if (cube[wantedX][wantedY][wantedZ].isEmpty() == true){
-                System.out.println("Move Good");
+            if (cube[wantedX][wantedY][wantedZ].isEmpty() == true && cube[wantedX][wantedY][wantedZ] != cube[Bees[i].getX()][Bees[i].getY()][Bees[i].getZ()]){
                 Point3D temp = new Point3D(wantedX,wantedY,wantedZ);
-                Bees[0].setLoc(temp);
-                Bees[0].addMove();
-                if(Bees[0].getX() == Hives[0].getX() && Bees[0].getY() == Hives[0].getY() && Bees[0].getZ() == Hives[0].getZ()) done = true;
+                Bees[i].setLoc(temp);
+                Bees[i].addMove();
+                if(Bees[i].getX() == Hives[i].getX() && Bees[i].getY() == Hives[i].getY() && Bees[i].getZ() == Hives[i].getZ()) done = true;
                 com = true;
             }
             //Second Box
-            if (com == false && cube[Bees[0].getX()][wantedY][wantedZ].isEmpty() == true){
-                System.out.println("Move Good");
-                Point3D temp = new Point3D(Bees[0].getX(),wantedY,wantedZ);
-                Bees[0].setLoc(temp);
-                Bees[0].addMove();
-                if(Bees[0].getX() == Hives[0].getX() && Bees[0].getY() == Hives[0].getY() && Bees[0].getZ() == Hives[0].getZ()) done = true;
+            if (com == false && cube[Bees[i].getX()][wantedY][wantedZ].isEmpty() == true && cube[Bees[i].getX()][wantedY][wantedZ] != cube[Bees[i].getX()][Bees[i].getY()][Bees[i].getZ()]){
+                Point3D temp = new Point3D(Bees[i].getX(),wantedY,wantedZ);
+                Bees[i].setLoc(temp);
+                Bees[i].addMove();
+                if(Bees[i].getX() == Hives[i].getX() && Bees[i].getY() == Hives[i].getY() && Bees[i].getZ() == Hives[i].getZ()) done = true;
                 com = true;
             }
             //Third Box
-            if (com == false && cube[wantedX][Bees[0].getY()][wantedZ].isEmpty() == true){
-                System.out.println("Move Good");
-                Point3D temp = new Point3D(wantedX,Bees[0].getY(),wantedZ);
-                Bees[0].setLoc(temp);
-                Bees[0].addMove();
-                if(Bees[0].getX() == Hives[0].getX() && Bees[0].getY() == Hives[0].getY() && Bees[0].getZ() == Hives[0].getZ()) done = true;
+            if (com == false && cube[wantedX][Bees[i].getY()][wantedZ].isEmpty() == true && cube[wantedX][Bees[i].getY()][wantedZ] != cube[Bees[i].getX()][Bees[i].getY()][Bees[i].getZ()]){
+                Point3D temp = new Point3D(wantedX,Bees[i].getY(),wantedZ);
+                Bees[i].setLoc(temp);
+                Bees[i].addMove();
+                if(Bees[i].getX() == Hives[i].getX() && Bees[i].getY() == Hives[i].getY() && Bees[i].getZ() == Hives[i].getZ()) done = true;
                 com = true;
             }
             //Fourth Box
-            if (com == false && cube[wantedX][wantedY][Bees[0].getZ()].isEmpty() == true){
-                System.out.println("Move Good");
-                Point3D temp = new Point3D(wantedX,wantedY,Bees[0].getZ());
-                Bees[0].setLoc(temp);
-                Bees[0].addMove();
-                if(Bees[0].getX() == Hives[0].getX() && Bees[0].getY() == Hives[0].getY() && Bees[0].getZ() == Hives[0].getZ()) done = true;
+            if (com == false && cube[wantedX][wantedY][Bees[i].getZ()].isEmpty() == true && cube[wantedX][wantedY][Bees[i].getZ()] != cube[Bees[i].getX()][Bees[i].getY()][Bees[i].getZ()]){
+                Point3D temp = new Point3D(wantedX,wantedY,Bees[i].getZ());
+                Bees[i].setLoc(temp);
+                Bees[i].addMove();
+                if(Bees[i].getX() == Hives[i].getX() && Bees[i].getY() == Hives[i].getY() && Bees[i].getZ() == Hives[i].getZ()) done = true;
                 com = true;
             }
-            
+            //Fifth Box
+            if (com == false && cube[Bees[i].getX()][wantedY][wantedZ].isEmpty() == true && cube[Bees[i].getX()][wantedY][wantedZ] != cube[Bees[i].getX()][Bees[i].getY()][Bees[i].getZ()]){
+                Point3D temp = new Point3D(Bees[i].getX(),wantedY,wantedZ);
+                Bees[i].setLoc(temp);
+                Bees[i].addMove();
+                if(Bees[i].getX() == Hives[i].getX() && Bees[i].getY() == Hives[i].getY() && Bees[i].getZ() == Hives[i].getZ()) done = true;
+                com = true;
+            }
+            if (com == false) {
+                System.out.println("Bee " + (i + 1));
+                System.out.println("Move " + (k + 1));
+                break;
+            }
+            cube[Bees[i].getX()][Bees[i].getY()][Bees[i].getZ()].setBee(true);
+            if (done == true) Bees[i].setMoves(k + 1);
+            if (done == true) totalmoves += (k + 1);
+            if (done == true) System.out.println(totalmoves);
+            if (done == true) Hives[i].setFull(true);
         }
+        }
+        
     }
         
 }

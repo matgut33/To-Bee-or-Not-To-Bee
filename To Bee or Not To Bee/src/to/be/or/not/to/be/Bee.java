@@ -39,7 +39,7 @@ public class Bee {
     public void setMoves(int moves) {
         this.moves = moves;
     }
-    
+//    
     public void addMove(){
         moves ++;
     }
