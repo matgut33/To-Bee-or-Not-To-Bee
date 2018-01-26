@@ -70,9 +70,9 @@ public class Box {
         return (int)loc.getZ();
     }
     
-    public boolean isFull(){
-        if (blocked == true || bee == true) return true;
-        return false;
+    public boolean isEmpty(){
+        if (blocked == true || bee == true) return false;
+        return true;
         
     }
 }

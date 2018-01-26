@@ -40,6 +40,10 @@ public class Bee {
         this.moves = moves;
     }
     
+    public void addMove(){
+        moves ++;
+    }
+    
     public int getX() {
         return (int)loc.getX();
     }
