@@ -55,4 +55,9 @@ public class Bee {
     public int getZ() {
         return (int)loc.getZ();
     }
+    
+    public String toString() {
+        return "(" + this.getX() + "," + this.getY() + "," + this.getZ() + ")";
+    }
+    
 }

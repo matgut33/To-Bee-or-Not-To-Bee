@@ -75,4 +75,11 @@ public class Box {
         return true;
         
     }
+    
+    public String toString(){
+        String info;
+        info = "BOX:" + this.getX() + ":" + this.getY() + ":" + this.getZ() + " - IsBlocked is " + this.isBlocked();
+        return info;
+    }
+        
 }
