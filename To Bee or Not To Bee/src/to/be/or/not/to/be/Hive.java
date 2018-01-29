@@ -49,4 +49,8 @@ public class Hive {
     public int getZ() {
         return (int)loc.getZ();
     }
+    
+    public double getDistance(Point3D p) {
+        return Math.sqrt((this.getX() - p.getX())*(this.getX() - p.getX()) + (this.getY() - p.getY())*(this.getY() - p.getY()) + (this.getZ() - p.getZ())*(this.getZ() - p.getZ()));
+    }
 }

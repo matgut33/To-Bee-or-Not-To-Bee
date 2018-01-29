@@ -73,7 +73,6 @@ public class Box {
     public boolean isEmpty(){
         if (blocked == true || bee == true) return false;
         return true;
-        
     }
     
     public String toString(){
