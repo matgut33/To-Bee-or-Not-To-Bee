@@ -125,19 +125,20 @@ public class ToBeeOrNotToBee {
         options[23] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() - 1,Bees[0].getZ() + 1);
         options[24] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() - 1,Bees[0].getZ() + 0);
         options[25] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() - 1,Bees[0].getZ() - 1);
-        
+        double d = 0;
         for(int i = 0; i < options.length; i++)
         {
             for(int j = 1; j < (options.length - i); j++)
             {
-                r = options[j - 1].compareTo(o[j]);
-                   if (r > 0) 
+                d = Hives[0].getDistance(options[j-1]) - Hives[0].getDistance(options[j]);
+                   if (d < 0) 
                     {
-                        Point3D tmp = options[j-1];
+                    Point3D tmp = options[j-1];
                     options[j-1] = options[j];
                     options[j] = tmp;
                     } 
             }
     }
         
+}
 }
