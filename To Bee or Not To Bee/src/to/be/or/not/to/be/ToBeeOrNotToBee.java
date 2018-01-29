@@ -138,7 +138,15 @@ public class ToBeeOrNotToBee {
                     options[j] = tmp;
                     } 
             }
+        }
+        for(int i = 0; i < options.length; i++)
+        {
+            if (cube[(int)options[0].getX()][(int)options[0].getY()][(int)options[0].getZ()].isEmpty() == true){
+            Point3D temp = options[i];
+            Bees[0].setLoc(temp);
+            Bees[0].addMove();
+            break;
+            }
+        }
     }
-        
-}
 }
