@@ -98,55 +98,72 @@ public class ToBeeOrNotToBee {
         
         //Algorithm Try
         //Bee 1
-        Point3D[] options = new Point3D[26];
-        options[0] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() + 1,Bees[0].getZ() + 1);
-        options[1] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() + 1,Bees[0].getZ() + 0);
-        options[2] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() + 1,Bees[0].getZ() - 1);
-        options[3] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() + 0,Bees[0].getZ() + 1);
-        options[4] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() + 0,Bees[0].getZ() + 0);
-        options[5] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() + 0,Bees[0].getZ() - 1);
-        options[6] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() - 1,Bees[0].getZ() + 1);
-        options[7] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() - 1,Bees[0].getZ() + 0);
-        options[8] = new Point3D(Bees[0].getX() + 1, Bees[0].getY() - 1,Bees[0].getZ() - 1);
-        options[9] = new Point3D(Bees[0].getX() + 0, Bees[0].getY() + 1,Bees[0].getZ() + 1);
-        options[10] = new Point3D(Bees[0].getX() + 0, Bees[0].getY() + 1,Bees[0].getZ() + 0);
-        options[11] = new Point3D(Bees[0].getX() + 0, Bees[0].getY() + 1,Bees[0].getZ() - 1);
-        options[12] = new Point3D(Bees[0].getX() + 0, Bees[0].getY() + 0,Bees[0].getZ() + 1);
-        options[13] = new Point3D(Bees[0].getX() + 0, Bees[0].getY() + 0,Bees[0].getZ() - 1);
-        options[14] = new Point3D(Bees[0].getX() + 0, Bees[0].getY() - 1,Bees[0].getZ() + 1);
-        options[15] = new Point3D(Bees[0].getX() + 0, Bees[0].getY() - 1,Bees[0].getZ() + 0);
-        options[16] = new Point3D(Bees[0].getX() + 0, Bees[0].getY() - 1,Bees[0].getZ() - 1);
-        options[17] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() + 1,Bees[0].getZ() + 1);
-        options[18] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() + 1,Bees[0].getZ() + 0);
-        options[19] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() + 1,Bees[0].getZ() - 1);
-        options[20] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() + 0,Bees[0].getZ() + 1);
-        options[21] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() + 0,Bees[0].getZ() + 0);
-        options[22] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() + 0,Bees[0].getZ() - 1);
-        options[23] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() - 1,Bees[0].getZ() + 1);
-        options[24] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() - 1,Bees[0].getZ() + 0);
-        options[25] = new Point3D(Bees[0].getX() - 1, Bees[0].getY() - 1,Bees[0].getZ() - 1);
-        double d = 0;
-        for(int i = 0; i < options.length; i++)
-        {
-            for(int j = 1; j < (options.length - i); j++)
-            {
-                d = Hives[0].getDistance(options[j-1]) - Hives[0].getDistance(options[j]);
-                   if (d < 0) 
+        for(int h = 0; h < 15; h++){
+            boolean done = false;
+            while(done == false){
+                Point3D[] options = new Point3D[26];
+                options[0] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() + 1,Bees[h].getZ() + 1);
+                options[1] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() + 1,Bees[h].getZ() + 0);
+                options[2] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() + 1,Bees[h].getZ() - 1);
+                options[3] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() + 0,Bees[h].getZ() + 1);
+                options[4] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() + 0,Bees[h].getZ() + 0);
+                options[5] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() + 0,Bees[h].getZ() - 1);
+                options[6] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() - 1,Bees[h].getZ() + 1);
+                options[7] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() - 1,Bees[h].getZ() + 0);
+                options[8] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() - 1,Bees[h].getZ() - 1);
+                options[9] = new Point3D(Bees[h].getX() + 0, Bees[h].getY() + 1,Bees[h].getZ() + 1);
+                options[10] = new Point3D(Bees[h].getX() + 0, Bees[h].getY() + 1,Bees[h].getZ() + 0);
+                options[11] = new Point3D(Bees[h].getX() + 0, Bees[h].getY() + 1,Bees[h].getZ() - 1);
+                options[12] = new Point3D(Bees[h].getX() + 0, Bees[h].getY() + 0,Bees[h].getZ() + 1);
+                options[13] = new Point3D(Bees[h].getX() + 0, Bees[h].getY() + 0,Bees[h].getZ() - 1);
+                options[14] = new Point3D(Bees[h].getX() + 0, Bees[h].getY() - 1,Bees[h].getZ() + 1);
+                options[15] = new Point3D(Bees[h].getX() + 0, Bees[h].getY() - 1,Bees[h].getZ() + 0);
+                options[16] = new Point3D(Bees[h].getX() + 0, Bees[h].getY() - 1,Bees[h].getZ() - 1);
+                options[17] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() + 1,Bees[h].getZ() + 1);
+                options[18] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() + 1,Bees[h].getZ() + 0);
+                options[19] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() + 1,Bees[h].getZ() - 1);
+                options[20] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() + 0,Bees[h].getZ() + 1);
+                options[21] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() + 0,Bees[h].getZ() + 0);
+                options[22] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() + 0,Bees[h].getZ() - 1);
+                options[23] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() - 1,Bees[h].getZ() + 1);
+                options[24] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() - 1,Bees[h].getZ() + 0);
+                options[25] = new Point3D(Bees[h].getX() - 1, Bees[h].getY() - 1,Bees[h].getZ() - 1);
+                double d = 0;
+                for(int i = 0; i < options.length; i++)
+                {
+                    for(int j = 1; j < (options.length - i); j++)
                     {
-                    Point3D tmp = options[j-1];
-                    options[j-1] = options[j];
-                    options[j] = tmp;
-                    } 
-            }
-        }
-        for(int i = 0; i < options.length; i++)
-        {
-            if (cube[(int)options[0].getX()][(int)options[0].getY()][(int)options[0].getZ()].isEmpty() == true){
-            Point3D temp = options[i];
-            Bees[0].setLoc(temp);
-            Bees[0].addMove();
-            break;
+                        d = Hives[h].getDistance(options[j-1]) - Hives[h].getDistance(options[j]);
+                            if (d < 0) 
+                            {
+                            Point3D tmp = options[j-1];
+                            options[j-1] = options[j];
+                            options[j] = tmp;
+                            } 
+                    }
+                }
+
+                for(int i = 0; i < options.length; i++)
+                {
+                    if (options[i].getX() > 0 && options[i].getY() > 0 && options[i].getZ() > 0 && options[i].getX() < cube.length && options[i].getY() < cube.length && options[i].getZ() < cube.length){
+                        if (cube[(int)options[i].getX()][(int)options[i].getY()][(int)options[i].getZ()].isEmpty() == true){
+                        Point3D temp = options[i];
+                        Bees[h].setLoc(temp);
+                        Bees[h].addMove();
+                        System.out.println("Bee " + (h + 1) + " moved to " + options[i].getX() + "," + options[i].getY() + "," + options[i].getZ());
+                        break;
+                        }
+                    }
+
+                }
+
+                if (Hives[h].getLoc() == Bees[h].getLoc()){
+                    done = true;
+                    System.out.println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
+                }
             }
         }
     }
+        
+        
 }
