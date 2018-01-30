@@ -24,7 +24,7 @@ public class ToBeeOrNotToBee {
      * @param args String[]
      * @throws FileNotFoundException
      */
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, IOException {
         //MATCH NUMBER TO WHICH SETUP TO USE
         int day = 1;
         
@@ -36,6 +36,24 @@ public class ToBeeOrNotToBee {
         DecimalFormat two = new DecimalFormat("#.##");
         File f = new File("beesetup" + day + ".txt");
         Scanner r = new Scanner(f);
+        
+        PrintWriter[] W = new PrintWriter[15];
+        W[0] = new PrintWriter("Output/" + runDate + "/Output, Bee 1.txt", "UTF-8");
+        W[1] = new PrintWriter("Output/" + runDate + "/Output, Bee 2.txt", "UTF-8");
+        W[2] = new PrintWriter("Output/" + runDate + "/Output, Bee 3.txt", "UTF-8");
+        W[3] = new PrintWriter("Output/" + runDate + "/Output, Bee 4.txt", "UTF-8");
+        W[4] = new PrintWriter("Output/" + runDate + "/Output, Bee 5.txt", "UTF-8");
+        W[5] = new PrintWriter("Output/" + runDate + "/Output, Bee 6.txt", "UTF-8");
+        W[6] = new PrintWriter("Output/" + runDate + "/Output, Bee 7.txt", "UTF-8");
+        W[7] = new PrintWriter("Output/" + runDate + "/Output, Bee 8.txt", "UTF-8");
+        W[8] = new PrintWriter("Output/" + runDate + "/Output, Bee 9.txt", "UTF-8");
+        W[9] = new PrintWriter("Output/" + runDate + "/Output, Bee 10.txt", "UTF-8");
+        W[10] = new PrintWriter("Output/" + runDate + "/Output, Bee 11.txt", "UTF-8");
+        W[11] = new PrintWriter("Output/" + runDate + "/Output, Bee 12.txt", "UTF-8");
+        W[12] = new PrintWriter("Output/" + runDate + "/Output, Bee 13.txt", "UTF-8");
+        W[13] = new PrintWriter("Output/" + runDate + "/Output, Bee 14.txt", "UTF-8");
+        W[14] = new PrintWriter("Output/" + runDate + "/Output, Bee 15.txt", "UTF-8");
+        
         day = r.nextInt();
         r.nextLine();
         String si = r.nextLine();
@@ -152,7 +170,7 @@ public class ToBeeOrNotToBee {
                         Point3D temp = options[i];
                         Bees[h].setLoc(temp);
                         Bees[h].addMove(options[i]);
-                        System.out.println("Bee " + (h + 1) + " moved to " + options[i].getX() + "," + options[i].getY() + "," + options[i].getZ());
+                        W[h].println("Bee " + (h + 1) + " moved to " + options[i].getX() + "," + options[i].getY() + "," + options[i].getZ());
                         break;
                         }
                     }
@@ -161,7 +179,7 @@ public class ToBeeOrNotToBee {
 
                 if (Hives[h].getLoc().equals(Bees[h].getLoc())){
                     done = true;
-                    System.out.println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
+                    W[h].println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
                     total += Bees[h].getMoves();
                 }
             }
