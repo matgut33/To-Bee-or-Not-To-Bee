@@ -28,6 +28,7 @@ public class ToBeeOrNotToBee {
         //MATCH NUMBER TO WHICH SETUP TO USE
         int day = 1;
         
+        int total = 0;
         DateFormat sdf = new SimpleDateFormat("MM-dd-yyyy  HH;mm;ss");
         Date date = new Date();
         String runDate = sdf.format(date);
@@ -161,9 +162,11 @@ public class ToBeeOrNotToBee {
                 if (Hives[h].getLoc().equals(Bees[h].getLoc())){
                     done = true;
                     System.out.println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
+                    total += Bees[h].getMoves();
                 }
             }
         }
+        System.out.println("The total amount of moves is " + total + " moves");
     }
         
         
