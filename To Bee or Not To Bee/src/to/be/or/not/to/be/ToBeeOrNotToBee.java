@@ -101,6 +101,7 @@ public class ToBeeOrNotToBee {
         for(int h = 0; h < 15; h++){
             boolean done = false;
             while(done == false){
+                Point3D[] pmoves = new Point3D[50];
                 Point3D[] options = new Point3D[26];
                 options[0] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() + 1,Bees[h].getZ() + 1);
                 options[1] = new Point3D(Bees[h].getX() + 1, Bees[h].getY() + 1,Bees[h].getZ() + 0);
@@ -134,7 +135,7 @@ public class ToBeeOrNotToBee {
                     for(int j = 1; j < (options.length - i); j++)
                     {
                         d = Hives[h].getDistance(options[j-1]) - Hives[h].getDistance(options[j]);
-                            if (d < 0) 
+                            if (d > 0) 
                             {
                             Point3D tmp = options[j-1];
                             options[j-1] = options[j];
@@ -145,11 +146,11 @@ public class ToBeeOrNotToBee {
 
                 for(int i = 0; i < options.length; i++)
                 {
-                    if (options[i].getX() > 0 && options[i].getY() > 0 && options[i].getZ() > 0 && options[i].getX() < cube.length && options[i].getY() < cube.length && options[i].getZ() < cube.length){
+                    if (options[i].getX() > 0 && options[i].getY() > 0 && options[i].getZ() > 0 && options[i].getX() < cube.length && options[i].getY() < cube.length && options[i].getZ() < cube.length && Bees[h].checkMove(options[i]) == true){
                         if (cube[(int)options[i].getX()][(int)options[i].getY()][(int)options[i].getZ()].isEmpty() == true){
                         Point3D temp = options[i];
                         Bees[h].setLoc(temp);
-                        Bees[h].addMove();
+                        Bees[h].addMove(options[i]);
                         System.out.println("Bee " + (h + 1) + " moved to " + options[i].getX() + "," + options[i].getY() + "," + options[i].getZ());
                         break;
                         }
@@ -157,7 +158,7 @@ public class ToBeeOrNotToBee {
 
                 }
 
-                if (Hives[h].getLoc() == Bees[h].getLoc()){
+                if (Hives[h].getLoc().equals(Bees[h].getLoc())){
                     done = true;
                     System.out.println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
                 }

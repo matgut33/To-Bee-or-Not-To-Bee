@@ -12,6 +12,7 @@ import javafx.geometry.Point3D;
 public class Bee {
     private Point3D loc;
     private int moves;
+    private Point3D[] pmoves = new Point3D[10000];
     
     public Bee()
     {
@@ -39,9 +40,19 @@ public class Bee {
     public void setMoves(int moves) {
         this.moves = moves;
     }
-//    
-    public void addMove(){
+   
+    public void addMove(Point3D a){
+        pmoves[moves] = a;
         moves ++;
+    }
+    
+    public boolean checkMove(Point3D m){
+        for(int i = 0; i < moves; i++){
+            if (pmoves[i].equals(m)){
+                return false;
+            }
+        }
+        return true;         
     }
     
     public int getX() {
