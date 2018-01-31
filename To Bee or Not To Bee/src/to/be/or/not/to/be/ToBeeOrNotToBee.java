@@ -118,6 +118,21 @@ public class ToBeeOrNotToBee {
         //Algorithm Try
         //Bee 1
         for(int h = 0; h < 15; h++){
+                                
+            Double closest = 9999999999999999999.0;
+            int goingto = h;
+            for(int hiveoptions = 0; hiveoptions < 15; hiveoptions ++)
+            {
+                if(Hives[hiveoptions].isFull() == false && Hives[hiveoptions].getDistance(Bees[h].getLoc()) < closest)
+                {
+                    closest = Hives[hiveoptions].getDistance(Bees[h].getLoc());
+                    goingto = hiveoptions;
+                    System.out.println("New CLosest is " + hiveoptions);
+                }
+            }
+                
+            
+            
             boolean done = false;
             W[h].println("Bee " + (h + 1) + " started at point " + Bees[h].getX() + "," + Bees[h].getY() + "," + Bees[h].getZ());
             while(done == false){
@@ -154,7 +169,7 @@ public class ToBeeOrNotToBee {
                 {
                     for(int j = 1; j < (options.length - i); j++)
                     {
-                        d = Hives[h].getDistance(options[j-1]) - Hives[h].getDistance(options[j]);
+                        d = Hives[goingto].getDistance(options[j-1]) - Hives[goingto].getDistance(options[j]);
                             if (d > 0) 
                             {
                             Point3D tmp = options[j-1];
@@ -179,7 +194,7 @@ public class ToBeeOrNotToBee {
 
                 }
 
-                if (Hives[h].getLoc().equals(Bees[h].getLoc())){
+                if (Hives[goingto].getLoc().equals(Bees[h].getLoc())){
                     done = true;
                     W[h].println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
                     total += Bees[h].getMoves();
