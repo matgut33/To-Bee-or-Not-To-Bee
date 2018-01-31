@@ -119,6 +119,7 @@ public class ToBeeOrNotToBee {
         //Bee 1
         for(int h = 0; h < 15; h++){
             boolean done = false;
+            W[h].println("Bee " + (h + 1) + " started at point " + Bees[h].getX() + "," + Bees[h].getY() + "," + Bees[h].getZ());
             while(done == false){
                 Point3D[] pmoves = new Point3D[50];
                 Point3D[] options = new Point3D[26];
@@ -162,7 +163,8 @@ public class ToBeeOrNotToBee {
                             } 
                     }
                 }
-
+                
+                
                 for(int i = 0; i < options.length; i++)
                 {
                     if (options[i].getX() > 0 && options[i].getY() > 0 && options[i].getZ() > 0 && options[i].getX() < cube.length && options[i].getY() < cube.length && options[i].getZ() < cube.length && Bees[h].checkMove(options[i]) == true){
@@ -170,7 +172,7 @@ public class ToBeeOrNotToBee {
                         Point3D temp = options[i];
                         Bees[h].setLoc(temp);
                         Bees[h].addMove(options[i]);
-                        W[h].println("Bee " + (h + 1) + " moved to " + options[i].getX() + "," + options[i].getY() + "," + options[i].getZ());
+                        W[h].println("Bee " + (h + 1) + " moved to " + (int)options[i].getX() + "," + (int)options[i].getY() + "," + (int)options[i].getZ());
                         break;
                         }
                     }
@@ -181,6 +183,7 @@ public class ToBeeOrNotToBee {
                     done = true;
                     W[h].println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
                     total += Bees[h].getMoves();
+                    W[h].close();
                 }
             }
         }
