@@ -32,28 +32,28 @@ public class ToBeeOrNotToBee {
         DateFormat sdf = new SimpleDateFormat("MM-dd-yyyy  HH;mm;ss");
         Date date = new Date();
         String runDate = sdf.format(date);
-        new File("Output/" + runDate + " DAY " + day).mkdirs();
+        new File("Output/" + runDate + " SETUP " + day).mkdirs();
         DecimalFormat two = new DecimalFormat("#.##");
         File f = new File("beesetup" + day + ".txt");
         Scanner r = new Scanner(f);
         
         PrintWriter[] W = new PrintWriter[15];
-        W[0] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 1.txt", "UTF-8");
-        W[1] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 2.txt", "UTF-8");
-        W[2] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 3.txt", "UTF-8");
-        W[3] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 4.txt", "UTF-8");
-        W[4] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 5.txt", "UTF-8");
-        W[5] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 6.txt", "UTF-8");
-        W[6] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 7.txt", "UTF-8");
-        W[7] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 8.txt", "UTF-8");
-        W[8] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 9.txt", "UTF-8");
-        W[9] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 10.txt", "UTF-8");
-        W[10] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 11.txt", "UTF-8");
-        W[11] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 12.txt", "UTF-8");
-        W[12] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 13.txt", "UTF-8");
-        W[13] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 14.txt", "UTF-8");
-        W[14] = new PrintWriter("Output/" + runDate + " DAY " + day + "/Bee 15.txt", "UTF-8");
-        PrintWriter WO = new PrintWriter("Output/" + runDate + " DAY " + day + "/Overall.txt", "UTF-8");
+        W[0] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 1.txt", "UTF-8");
+        W[1] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 2.txt", "UTF-8");
+        W[2] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 3.txt", "UTF-8");
+        W[3] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 4.txt", "UTF-8");
+        W[4] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 5.txt", "UTF-8");
+        W[5] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 6.txt", "UTF-8");
+        W[6] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 7.txt", "UTF-8");
+        W[7] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 8.txt", "UTF-8");
+        W[8] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 9.txt", "UTF-8");
+        W[9] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 10.txt", "UTF-8");
+        W[10] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 11.txt", "UTF-8");
+        W[11] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 12.txt", "UTF-8");
+        W[12] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 13.txt", "UTF-8");
+        W[13] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 14.txt", "UTF-8");
+        W[14] = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Bee 15.txt", "UTF-8");
+        PrintWriter WO = new PrintWriter("Output/" + runDate + " SETUP " + day + "/Overall.txt", "UTF-8");
         
         day = r.nextInt();
         r.nextLine();
@@ -206,6 +206,6 @@ public class ToBeeOrNotToBee {
         WO.println("The total amount of moves is " + total + " moves");
         WO.close();
     }
-        
-        
+      
+    
 }
