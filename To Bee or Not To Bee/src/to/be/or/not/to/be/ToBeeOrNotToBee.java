@@ -127,7 +127,6 @@ public class ToBeeOrNotToBee {
                 {
                     closest = Hives[hiveoptions].getDistance(Bees[h].getLoc());
                     goingto = hiveoptions;
-                    System.out.println("New CLosest is " + hiveoptions);
                 }
             }
                 
