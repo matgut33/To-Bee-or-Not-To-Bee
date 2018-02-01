@@ -196,7 +196,7 @@ public class ToBeeOrNotToBee {
 
                 if (Hives[goingto].getLoc().equals(Bees[h].getLoc())){
                     done = true;
-                    W[h].println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
+                    W[h].println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves, and is resting in hive " + Bees[h].toString() + ".");
                     WO.println("Bee " + (h + 1) + " done in " + Bees[h].getMoves() + " moves.");
                     total += Bees[h].getMoves();
                     W[h].close();
