@@ -190,9 +190,6 @@ public class ToBeeOrNotToBee {
                         W[h].println("Bee " + (h + 1) + " moved to " + (int)options[i].getX() + "," + (int)options[i].getY() + "," + (int)options[i].getZ());
                         break;
                         }
-                    }
-
-                }
 
                 if (Hives[goingto].getLoc().equals(Bees[h].getLoc())){
                     done = true;
@@ -207,6 +204,9 @@ public class ToBeeOrNotToBee {
         WO.println("The total amount of moves is " + total + " moves");
         WO.close();
     }
+                    }
+
+                }
       
     
 }
