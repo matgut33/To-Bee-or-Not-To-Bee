@@ -189,6 +189,8 @@ public class ToBeeOrNotToBee {
                         Bees[h].addMove(options[i]);
                         W[h].println("Bee " + (h + 1) + " moved to " + (int)options[i].getX() + "," + (int)options[i].getY() + "," + (int)options[i].getZ());
                         break;
+                        } else {
+                            W[h].println("Bee " + (h + 1) + " tried to moved to " + (int)options[i].getX() + "," + (int)options[i].getY() + "," + (int)options[i].getZ() + " but point was blocked or full");
                         }
                     }
 
